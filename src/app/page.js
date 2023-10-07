@@ -7,6 +7,7 @@ import { Box, Container, Button, Typography, Divider } from "@mui/material";
 import Adverts from "./components/Adverts";
 import Stack from "@mui/material/Stack";
 import LinearProgress from "@mui/material/LinearProgress";
+import Footer from "./components/Footer";
 
 // const getData = async () => {
 //   const response = await fetch(
@@ -130,8 +131,11 @@ export default function Home({}) {
         </Box>
 
         <Box
-          className={styles.featured_cars}
-          sx={{ height: "100vh", display: "flex", flexDirection: "column" }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            marginBottom: "4rem",
+          }}
         >
           <Typography
             sx={{

@@ -20,7 +20,11 @@ import { LinearProgress } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const pages = ["Home", "About", "Faq"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = [
+  { Profile: "dashboard/my-profile" },
+  { Adverts: "dashboard/my-adverts" },
+  { Dashboard: "dashboard" },
+];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -200,11 +204,18 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: "center" }}>
-                    {setting}
-                  </Typography>
+              {settings.map((setting, index) => (
+                <MenuItem key={index} onClick={handleCloseUserMenu}>
+                  <a
+                    sx={{ textAlign: "center" }}
+                    href={`https://car-autos-ng-alx-webstack-6rz2.vercel.app/${
+                      setting[Object.keys(setting)[0]]
+                    }`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {`${Object.keys(setting)[0]}`}
+                  </a>
                 </MenuItem>
               ))}
             </Menu>

@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import { Box, Container, Button, Typography, Divider } from "@mui/material";
 import Adverts from "./components/Adverts";
 import Stack from "@mui/material/Stack";
+import LinearProgress from "@mui/material/LinearProgress";
 
 // const getData = async () => {
 //   const response = await fetch(
@@ -15,10 +16,11 @@ import Stack from "@mui/material/Stack";
 //   console.log(data);
 // };
 
-export default function Home() {
+export default function Home({}) {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageData, setPageData] = useState([]);
   const [search, setSearch] = useState(false);
+  const [loading, setLoading] = useState(true);
   // getData();
 
   const fetchData = async (page) => {
@@ -32,8 +34,10 @@ export default function Home() {
 
   useEffect(() => {
     const fetchDataAndSetState = async () => {
+      setLoading(true);
       const data = await fetchData(1);
       setPageData(data?.adverts);
+      setLoading(false);
     };
 
     fetchDataAndSetState();
@@ -41,20 +45,40 @@ export default function Home() {
 
   useEffect(() => {
     console.log("Page rendered");
+    setLoading(false);
   }, [pageData]);
 
   const handleChange = async (value) => {
+    setLoading(true);
     const data = await fetchData(value);
     setPageData(data?.adverts);
     setCurrentPage(value);
     console.log(pageData);
     // setCurrentPage(value);
+    setLoading(false);
   };
+
+  console.log(pageData.length);
 
   return (
     <div className={styles.main}>
       <Box sx={{ width: "100%", mx: 0 }}>
-        <Hero setPageData={setPageData} setSearch={setSearch} />
+        {loading === false ? (
+          <Divider
+            sx={{
+              backgroundColor: `${pageData.length === 0 ? "red" : "#ecf3e7"}`,
+              height: "4px",
+            }}
+          />
+        ) : (
+          <LinearProgress color="inherit" />
+        )}
+
+        <Hero
+          setPageData={setPageData}
+          setSearch={setSearch}
+          setLoading={setLoading}
+        />
       </Box>
       <Container
         sx={{ my: 4, display: "flex", flexDirection: "column", gap: "100px" }}
@@ -121,7 +145,7 @@ export default function Home() {
             {search === true ? "Featured Cars" : "Search Data"}
           </Typography>
 
-          <Divider className={styles.under_stroke} />
+          <Divider className={styles.under_stroke} sx={{ mx: "auto" }} />
 
           <Adverts
             pageData={pageData}

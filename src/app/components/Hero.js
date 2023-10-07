@@ -21,6 +21,7 @@ import { styled } from "@mui/system";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 import {Search} from "./Search";
+import Image from "next/image";
 
 
 
@@ -32,7 +33,7 @@ const FormWrapper = styled("div")(
 `
 );
 
-const Hero = ({setPageData, setSearch}) => {
+const Hero = ({setPageData, setSearch, setLoading}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
@@ -60,7 +61,7 @@ useEffect(() => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (currentSlide === 2) {
+      if (currentSlide === 7) {
         setCurrentSlide(0);
       } else {
         setCurrentSlide(currentSlide + 1);
@@ -98,18 +99,18 @@ useEffect(() => {
     }
   };
 
-  const bgImageStyle = {
-    width: "100%",
-    height: "100%",
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${Slides[currentSlide].url})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    zIndex: '000',
-    transition: '0.3s ease'
-  };
+  // const bgImageStyle = {
+  //   width: "100%",
+  //   height: "100%",
+  //   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${Slides[currentSlide].url})`,
+  //   backgroundPosition: "center",
+  //   backgroundSize: "cover",
+  //   position: 'absolute',
+  //   top: '0',
+  //   left: '0',
+  //   zIndex: '000',
+  //   transition: '0.3s ease'
+  // };
 
   const initialValues = {
     Brand: "",
@@ -119,6 +120,7 @@ useEffect(() => {
   };
 
   const handleSubmit = async (values) => {
+      setLoading(true);
     console.log(`values: ${values}`)
     setSearch(true);
     const pageData = await Search(values.Model, values.Location, values.Year, values.search_query);
@@ -148,11 +150,11 @@ useEffect(() => {
         width: "100%",
         height: "auto",
         textAlign: "center",
-        
       }}
       className={styles.hero}
     >
-      <Box style={bgImageStyle} sx={{height: 'auto'}}></Box>
+      {/* <Box style={bgImageStyle} sx={{height: 'auto'}}></Box> */}
+      <Image src={`${Slides[currentSlide].url}`} width={300} height={300} alt="cars" style={{position: "absolute", left: 0, zIndex: 0, width: "100%", height: "100%", objectFit: "cover"}} />
       <Box className={styles.hero_content} >
         <Typography
           sx={{

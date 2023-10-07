@@ -1,16 +1,26 @@
 const imageSlide = [
   {
-    url: "https://images.pexels.com/photos/1075947/pexels-photo-1075947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    url: "/Assets/corolla.png",
   },
   {
-    url: "https://images.pexels.com/photos/2036544/pexels-photo-2036544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    url: "/Assets/bugatti.png",
   },
   {
-    url: "https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    url: "/Assets/honda.jpeg",
   },
   {
-    url: "/Assets/prop_car.png",
+    url: "/Assets/gwagon.jpeg",
   },
+  {
+    url: "/Assets/rolls.jpeg",
+  },
+  {
+    url: "/Assets/bmw.jpg",
+  },
+  {
+    url: "/Assets/cruiser.jpeg",
+  },
+  { url: "/Assets/camry.jpeg" },
 ];
 
 export default imageSlide;

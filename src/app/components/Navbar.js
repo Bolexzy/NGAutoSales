@@ -1,7 +1,7 @@
 "use client";
 
 import NoCrashIcon from "@mui/icons-material/NoCrash";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -16,6 +16,8 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import styles from "./navbar.module.css";
+import { LinearProgress } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const pages = ["Home", "About", "Faq"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -111,7 +113,7 @@ const Navbar = () => {
                     textAlign="center"
                     underline="none"
                     color={"inherit"}
-                    href={page === "/Home" ? "/#" : `/${page}`}
+                    href={page === "Home" ? "/#" : `/${page}`}
                   >
                     <Typography
                       style={{
@@ -174,7 +176,11 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/vercel.svg" />
+                <AccountCircleIcon
+                  alt="Remy Sharp"
+                  sx={{ fontSize: "2.5rem", color: "#fff" }}
+                />
+
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
               </IconButton>
             </Tooltip>

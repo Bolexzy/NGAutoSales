@@ -20,7 +20,7 @@
   color: #ffff;
   text-align: center;
   padding: 20px;
-  z-index: 999;
+  z-index: 900;
 }
 
 .search_box {
@@ -33,7 +33,7 @@
   border: 1px solid #4f4d6d;
   padding: 5px;
   padding-left: 20px;
-  z-index: 999;
+  z-index: 888;
 }
 
 .search_box:active,

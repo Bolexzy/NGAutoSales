@@ -17,7 +17,7 @@ const About = () => {
       <Box sx={{ marginBottom: "5rem" }}>
         <Typography
           sx={{
-            fontSize: "2.1875rem",
+            fontSize: { xs: "1.5rem", lg: "2.1875rem" },
             fontFamily: "DM Sans",
             letterSpacing: "0.21875rem",
             fontWeight: 500,
@@ -38,8 +38,12 @@ const About = () => {
         <Image
           src={"/Assets/bugatti.jpeg"}
           width={300}
-          height={400}
-          style={{ width: "85%", marginTop: "2rem", borderRadius: "2rem" }}
+          height={300}
+          style={{
+            width: { xs: "100%", lg: "85%" },
+            marginTop: "2rem",
+            borderRadius: "2rem",
+          }}
         />
       </Box>
       <Box
@@ -175,9 +179,11 @@ const About = () => {
         sx={{
           display: "flex",
           justifyContent: "space-between",
+          flexDirection: { xs: "column", lg: "row" },
           alignContent: "center",
           textAlign: "center",
-          gap: "5rem",
+          gap: { xs: "3rem", lg: "5rem" },
+          alignItems: "center",
         }}
       >
         <Image
@@ -206,10 +212,12 @@ const About = () => {
       <Box
         sx={{
           display: "flex",
-          gap: "5rem",
+          gap: { xs: "3rem", lg: "5rem" },
           justifyContent: "space-between",
+          flexDirection: { xs: "column", lg: "row" },
           alignContent: "center",
           textAlign: "center",
+          alignItems: "center",
         }}
       >
         <Image
@@ -238,10 +246,12 @@ const About = () => {
       <Box
         sx={{
           display: "flex",
-          gap: "5rem",
+          gap: { xs: "3rem", lg: "5rem" },
           justifyContent: "space-between",
           alignContent: "center",
           textAlign: "center",
+          flexDirection: { xs: "column", lg: "row" },
+          alignItems: "center",
         }}
       >
         <Image
@@ -269,10 +279,12 @@ const About = () => {
       <Box
         sx={{
           display: "flex",
-          gap: "5rem",
+          gap: { xs: "3rem", lg: "5rem" },
           justifyContent: "space-between",
           alignContent: "center",
           textAlign: "center",
+          flexDirection: { xs: "column", lg: "row" },
+          alignItems: "center",
         }}
       >
         <Image

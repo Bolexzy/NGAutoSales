@@ -1,0 +1,45 @@
+.slider_nav {
+  z-index: 888;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  transform: translateY(80px);
+  margin-bottom: 7rem;
+  list-style: none;
+}
+
+.slider_nav .nav_btn {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  transition: 0.3s ease;
+}
+
+.slider_nav .nav_btn:hover {
+  transform: scale(1.2);
+}
+
+.slider_nav .nav_btn.active {
+  background-color: #40b131;
+}
+
+.slider_nav .nav_btn:not(:last-child) {
+  margin-right: 20px;
+}
+
+.navigate_next {
+  position: absolute;
+  top: 30%;
+  left: 80%;
+}
+
+.navigate_prev {
+  position: absolute;
+  top: 30%;
+  left: 11%;
+}

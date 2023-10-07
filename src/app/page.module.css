@@ -1,0 +1,24 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.box_wrapper {
+  width: 100%;
+  margin: auto;
+  display: flex;
+}
+
+.under_stroke {
+  background-color: #333;
+  color: #333;
+  width: 120px;
+  height: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1rem;
+  margin-top: -1.3rem;
+  margin-bottom: 3rem;
+}

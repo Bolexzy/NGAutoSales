@@ -1,0 +1,12 @@
+.appbar {
+  /* background-color: var(--bg-secondary-color); */
+  border-bottom: 2px solid #ecf3e7;
+  background-color: #2f440d;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23fefffe' fill-opacity='0.08'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.text:hover {
+  opacity: 0.9;
+  text-shadow: 0px 0px 5px black;
+  font-weight: bold;
+}

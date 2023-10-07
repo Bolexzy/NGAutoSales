@@ -10,15 +10,16 @@ const Footer = () => {
     <Container
       sx={{
         display: "flex",
+        flexDirection: { xs: "column", lg: "row" },
         gap: "6rem",
         fontFamily: "Poppins",
         backgroundColor: "#071502",
         justifyContent: "center",
-        alignItems: "start",
+        alignItems: { xs: "center", lg: "start" },
         minWidth: "100vw",
         py: "4rem",
         marginTop: "4rem",
-        paddingX: "26rem",
+        paddingX: { xs: "6rem", lg: "26rem" },
       }}
     >
       <Box

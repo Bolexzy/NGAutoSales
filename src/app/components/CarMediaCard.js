@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -23,10 +23,10 @@ import { styled } from "@mui/system";
 import Divider from "@mui/material/Divider";
 
 const CarMediaCard = ({ data }) => {
-  const [year, setYear] = React.useState("");
-  const [model, setModel] = React.useState("");
-  const [state, setState] = React.useState("");
-  const [brand, setBrand] = React.useState("");
+  const [year, setYear] = useState("");
+  const [model, setModel] = useState("");
+  const [state, setState] = useState("");
+  const [brand, setBrand] = useState("");
 
   const imgUrl = "https://carautong.pythonanywhere.com";
 

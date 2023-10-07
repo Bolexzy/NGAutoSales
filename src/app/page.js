@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import Hero from "./components/Hero";
 import { Box, Container, Button, Typography, Divider } from "@mui/material";
@@ -16,9 +16,9 @@ import Stack from "@mui/material/Stack";
 // };
 
 export default function Home() {
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const [pageData, setPageData] = React.useState([]);
-  const [search, setSearch] = React.useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageData, setPageData] = useState([]);
+  const [search, setSearch] = useState(false);
   // getData();
 
   const fetchData = async (page) => {
@@ -30,7 +30,7 @@ export default function Home() {
     return data;
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchDataAndSetState = async () => {
       const data = await fetchData(1);
       setPageData(data?.adverts);
@@ -39,7 +39,7 @@ export default function Home() {
     fetchDataAndSetState();
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log("Page rendered");
   }, [pageData]);
 

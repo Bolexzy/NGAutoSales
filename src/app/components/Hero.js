@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import {useEffect, useState} from "react";
 import {
   Box,
   FormControl,
@@ -33,34 +33,32 @@ const FormWrapper = styled("div")(
 );
 
 const Hero = ({setPageData, setSearch}) => {
-  const [currentSlide, setCurrentSlide] = React.useState(0);
-  const [brands, setBrands] = React.useState([]);
-  const [models, setModels] = React.useState([]);
-  const [locations, setLocations] = React.useState([]);
-  const [years, setYears] = React.useState([]);
-  const [brand, setBrand] = React.useState("");
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [brands, setBrands] = useState([]);
+  const [models, setModels] = useState([]);
+  const [locations, setLocations] = useState([]);
+  const [years, setYears] = useState([]);
+  const [brand, setBrand] = useState("");
   // const [model, setModel] = React.useState("");
   // const [location, setLocation] = React.useState("");
   // const [year, setYear] = React.useState("");
-
-  const [searchQuery, setSearchQuery] = React.useState('Toyota');
 
 
 
   const apiUrl = "https://carautong.pythonanywhere.com/api/years";
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchProp("brands");
     fetchProp("states");
     fetchProp("years");
 }, []);
 
-React.useEffect(() => {
+useEffect(() => {
   console.log('Component re-rendered');
 }, [models]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setTimeout(() => {
       if (currentSlide === 2) {
         setCurrentSlide(0);

@@ -94,7 +94,7 @@ export default function Home({}) {
           <Box>
             <Typography
               sx={{
-                fontSize: { xs: "1.7rem", md: "2.1875rem" },
+                fontSize: { xs: "1.7rem", md: "1.7875rem" },
                 fontFamily: "DM Sans",
                 fontWeight: 500,
                 letterSpacing: " 0.06rem",
@@ -118,7 +118,8 @@ export default function Home({}) {
             variant="contained"
             color="success"
             sx={{
-              width: { xs: "100%", lg: "20rem" },
+              width: { xs: "100%", lg: "35%" },
+              height: "2.8rem",
               filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) ",
               backgroundColor: "rgba(220, 171, 47, 0.84)",
             }}

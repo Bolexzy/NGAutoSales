@@ -66,7 +66,7 @@ const About = () => {
         </Typography>
         <Typography
           sx={{
-            fontSize: "0.875rem",
+            fontSize: { xs: "0.675rem", lg: "0.875rem" },
             letterSpacing: "0.04375rem",
             fontWeight: 400,
             color: "6B6B6B",
@@ -82,7 +82,7 @@ const About = () => {
         </Typography>
         <Typography
           sx={{
-            fontSize: "0.875rem",
+            fontSize: { xs: "0.675rem", lg: "0.875rem" },
             letterSpacing: "0.04375rem",
             fontWeight: 400,
             color: "6B6B6B",
@@ -124,7 +124,7 @@ const About = () => {
 
         <Typography
           sx={{
-            fontSize: "0.875rem",
+            fontSize: { xs: "0.675rem", lg: "0.875rem" },
             letterSpacing: "0.04375rem",
             fontWeight: 400,
             color: "6B6B6B",
@@ -194,7 +194,7 @@ const About = () => {
         />
         <Typography
           sx={{
-            fontSize: "0.875rem",
+            fontSize: { xs: "0.675rem", lg: "0.875rem" },
             letterSpacing: "0.04375rem",
             fontWeight: 400,
             color: "#6B6B6B",
@@ -228,7 +228,7 @@ const About = () => {
         />
         <Typography
           sx={{
-            fontSize: "0.875rem",
+            fontSize: { xs: "0.675rem", lg: "0.875rem" },
             letterSpacing: "0.04375rem",
             fontWeight: 400,
             color: "#6B6B6B",
@@ -262,7 +262,7 @@ const About = () => {
         />
         <Typography
           sx={{
-            fontSize: "0.875rem",
+            fontSize: { xs: "0.675rem", lg: "0.875rem" },
             letterSpacing: "0.04375rem",
             fontWeight: 400,
             color: "#6B6B6B",
@@ -295,7 +295,7 @@ const About = () => {
         />
         <Typography
           sx={{
-            fontSize: "0.875rem",
+            fontSize: { xs: "0.675rem", lg: "0.875rem" },
             letterSpacing: "0.04375rem",
             fontWeight: 400,
             color: "#6B6B6B",

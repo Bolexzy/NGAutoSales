@@ -1,7 +1,16 @@
+"use client";
 import { Container, Box, Typography, Divider } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Faq = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+  }, []);
   return (
     <Container
       sx={{
@@ -13,7 +22,7 @@ const Faq = () => {
         gap: "3rem",
       }}
     >
-      <Box sx={{ marginBottom: "5rem" }}>
+      <Box sx={{ marginBottom: "2rem" }}>
         <Typography
           sx={{
             fontSize: { xs: "1.5rem", lg: "2.1875rem" },
@@ -27,12 +36,13 @@ const Faq = () => {
         <Divider
           sx={{
             mx: "auto",
-            backgroundColor: "#333",
+            backgroundColor: "#6b6b6b",
             width: "50%",
             height: "3px",
             borderRadius: "1rem",
             my: ".7rem",
           }}
+          data-aos="zoom-in-up"
         />
       </Box>
       <Box
@@ -43,6 +53,7 @@ const Faq = () => {
           textAlign: "left",
           fontFamily: "Poppins",
         }}
+        data-aos="fade-left"
       >
         <Typography
           sx={{
@@ -78,6 +89,7 @@ const Faq = () => {
           textAlign: "left",
           fontFamily: "Poppins",
         }}
+        data-aos="fade-left"
       >
         <Typography
           sx={{
@@ -112,6 +124,7 @@ const Faq = () => {
           textAlign: "left",
           fontFamily: "Poppins",
         }}
+        data-aos="fade-left"
       >
         <Typography
           sx={{
@@ -146,6 +159,7 @@ const Faq = () => {
           textAlign: "left",
           fontFamily: "Poppins",
         }}
+        data-aos="fade-left"
       >
         <Typography
           sx={{
@@ -180,6 +194,7 @@ const Faq = () => {
           textAlign: "left",
           fontFamily: "Poppins",
         }}
+        data-aos="fade-left"
       >
         <Typography
           sx={{
@@ -215,6 +230,7 @@ const Faq = () => {
           textAlign: "left",
           fontFamily: "Poppins",
         }}
+        data-aos="fade-left"
       >
         <Typography
           sx={{
@@ -249,6 +265,7 @@ const Faq = () => {
           textAlign: "left",
           fontFamily: "Poppins",
         }}
+        data-aos="fade-left"
       >
         <Typography
           sx={{
@@ -283,6 +300,7 @@ const Faq = () => {
           textAlign: "left",
           fontFamily: "Poppins",
         }}
+        data-aos="fade-left"
       >
         <Typography
           sx={{
@@ -316,6 +334,7 @@ const Faq = () => {
           textAlign: "left",
           fontFamily: "Poppins",
         }}
+        data-aos="fade-left"
       >
         <Typography
           sx={{
@@ -350,6 +369,7 @@ const Faq = () => {
           textAlign: "left",
           fontFamily: "Poppins",
         }}
+        data-aos="fade-left"
       >
         <Typography
           sx={{

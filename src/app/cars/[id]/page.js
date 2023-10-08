@@ -2,7 +2,7 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
-import { Typography, Paper, Box, Container } from "@mui/material";
+import { Typography, Paper, Box, Container, Divider } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import styles from "./cars.module.css";
@@ -17,9 +17,10 @@ import CallIcon from "@mui/icons-material/Call";
 
 const page = ({ params, searchParams }) => {
   const carId = params.id;
-  const { year, state, brand } = searchParams;
+  const { year, state, brand, city } = searchParams;
   const [carData, setCarData] = React.useState([]);
   const [activeSlide, setActiveSlide] = React.useState(null);
+  const [copied, setCopied] = React.useState(false);
 
   const fetchData = async (page) => {
     const response = await fetch(
@@ -43,8 +44,6 @@ const page = ({ params, searchParams }) => {
     fetchDataAndSetState();
   }, []);
 
-  console.log(`data: ${carData}`);
-
   const imgUrl = "https://carautong.pythonanywhere.com";
 
   const toggleActive = (slide) => {
@@ -60,12 +59,33 @@ const page = ({ params, searchParams }) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "#D9D9D9",
-    border: "2px solid #000",
+    width: 300,
+    maxWidth: 500,
+    bgcolor: "#2F440D",
+    color: "#fff",
+    border: "2px solid #071502",
     borderRadius: ".5rem",
     boxShadow: 24,
     p: 4,
+  };
+
+  const handleCopyToClipboard = async () => {
+    try {
+      // Text to be copied to the clipboard
+      const textToCopy = window.location.href;
+
+      // Using the Clipboard API to copy text to the clipboard
+      await navigator.clipboard.writeText(textToCopy);
+
+      setCopied(true);
+
+      // Reset the notification after a certain time (e.g., 3 seconds)
+      setTimeout(() => {
+        setCopied(false);
+      }, 3000);
+    } catch (err) {
+      console.error("Error copying to clipboard:", err);
+    }
   };
 
   return (
@@ -125,7 +145,7 @@ const page = ({ params, searchParams }) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "rgba(47, 68, 13, 0.14)",
+            backgroundColor: "#D9D9D9",
           }}
         >
           <img
@@ -236,8 +256,8 @@ const page = ({ params, searchParams }) => {
                 fontSize: "2rem",
               }}
             >
-              <LocationOnIcon sx={{ fontSize: "2rem" }} />
-              <Typography>{state}</Typography>
+              <LocationOnIcon />
+              <Typography>{`${city}, ${state}`}</Typography>
             </Box>
             <Box
               sx={{
@@ -249,7 +269,7 @@ const page = ({ params, searchParams }) => {
               }}
             >
               <DirectionsCarIcon />
-              <Typography>No accidents</Typography>
+              <Typography>{`${carData?.title}`}</Typography>
             </Box>
             <Box
               sx={{
@@ -290,18 +310,6 @@ const page = ({ params, searchParams }) => {
               <DirectionsCarIcon />
               <Typography>No accidents</Typography>
             </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                gap: ".8rem",
-                alignItems: "center",
-                fontSize: "2rem",
-              }}
-            >
-              <DirectionsCarIcon />
-              <Typography>No accidents</Typography>
-            </Box>
           </Box>
           <Box sx={{ marginLeft: "auto", marginRight: "24rem" }}>
             <Typography sx={{ fontSize: "1.4rem", color: "grey" }}>
@@ -322,7 +330,9 @@ const page = ({ params, searchParams }) => {
                 width={18}
                 height={18}
               />
-              <Typography>{carData?.price}</Typography>
+              <Typography>
+                {parseFloat(carData?.price).toLocaleString("en-US")}
+              </Typography>
             </Box>
             <div style={{ width: "100%" }}>
               <Button
@@ -351,6 +361,8 @@ const page = ({ params, searchParams }) => {
                   >
                     Contact Seller
                   </Typography>
+                  <Divider sx={{ backgroundColor: "#071502", height: "2px" }} />
+
                   <Typography
                     id="modal-modal-description"
                     sx={{
@@ -368,14 +380,27 @@ const page = ({ params, searchParams }) => {
             </div>
           </Box>
         </Box>
-        <Box sx={{ marginTop: "2rem" }}>
+        <Box sx={{ marginTop: "2rem", display: "flex", alignItems: "center" }}>
           <Button
             size="small"
             variant="contained"
             sx={{ color: "#000", textTransform: "capitalize" }}
+            onClick={handleCopyToClipboard}
           >
             Share
           </Button>
+          {copied && (
+            <div
+              style={{
+                fontSize: ".7rem",
+                color: "green",
+                textTransform: "capitalize",
+                marginLeft: ".4rem",
+              }}
+            >
+              URL copied to clipboard!
+            </div>
+          )}
         </Box>
       </Box>
     </Container>

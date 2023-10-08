@@ -1,9 +1,12 @@
 const imageSlide = [
+  { url: "/Assets/lexus.jpeg" },
+
+  { url: "/Assets/camry2.jpeg" },
   {
     url: "/Assets/corolla.png",
   },
   {
-    url: "/Assets/bugatti.png",
+    url: "/Assets/bugatti.jpeg",
   },
   {
     url: "/Assets/honda.jpeg",

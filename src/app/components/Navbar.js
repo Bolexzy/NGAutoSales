@@ -18,6 +18,7 @@ import Link from "next/link";
 import styles from "./navbar.module.css";
 import { LinearProgress } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Image from "next/image";
 
 const pages = ["Home", "About", "Faq"];
 const settings = [
@@ -54,12 +55,23 @@ const Navbar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* logo  */}
-          <NoCrashIcon
+          {/* <NoCrashIcon
             sx={{
               display: { xs: "none", md: "flex" },
               mr: 1,
             }}
-          />
+          /> */}
+
+          <Box sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}>
+            <Image
+              src={"/logo.png"}
+              width={40}
+              height={40}
+              style={{
+                borderRadius: "50%",
+              }}
+            />
+          </Box>
 
           <Typography
             variant="h6"
@@ -135,8 +147,17 @@ const Navbar = () => {
             </Menu>
           </Box>
 
-          <NoCrashIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-
+          {/* <NoCrashIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
+          <Box sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
+            <Image
+              src={"/logo.png"}
+              width={30}
+              height={30}
+              style={{
+                borderRadius: "50%",
+              }}
+            />
+          </Box>
           <Typography
             variant="h5"
             noWrap

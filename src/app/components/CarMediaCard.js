@@ -1,5 +1,5 @@
 "use client";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -21,12 +21,14 @@ import EmojiTransportationIcon from "@mui/icons-material/EmojiTransportation";
 import ImageSlides from "../../data";
 import { styled } from "@mui/system";
 import Divider from "@mui/material/Divider";
+import Image from "next/image";
 
 const CarMediaCard = ({ data }) => {
   const [year, setYear] = useState("");
   const [model, setModel] = useState("");
   const [state, setState] = useState("");
   const [brand, setBrand] = useState("");
+  const [city, setCity] = useState("");
 
   const imgUrl = "https://carautong.pythonanywhere.com";
 
@@ -48,6 +50,8 @@ const CarMediaCard = ({ data }) => {
         setState(result.name);
       } else if (prop === "brands") {
         setBrand(result.name);
+      } else if (prop === "cities") {
+        setCity(result.name);
       }
 
       return result;
@@ -60,8 +64,7 @@ const CarMediaCard = ({ data }) => {
   fetchProp("models", data?.model);
   fetchProp("states", data?.state);
   fetchProp("brands", data?.brand);
-
-  const handleClick = () => {};
+  fetchProp("cities", data?.city);
 
   return (
     <Paper
@@ -70,10 +73,9 @@ const CarMediaCard = ({ data }) => {
       className={styles.paper}
     >
       <Link
-        onClick={handleClick}
         sx={{ textDecoration: "none", color: "inherit" }}
-        href={`/cars/${data?.id}?year=${year}&state=${state}&brand=${brand}`}
-        as={`/cars/${data?.id}?year=${year}&state=${state}&brand=${brand}`}
+        href={`/cars/${data?.id}?year=${year}&state=${state}&brand=${brand}&city=${city}`}
+        as={`/cars/${data?.id}?year=${year}&state=${state}&brand=${brand}&city=${city}`}
       >
         <Card sx={{ width: 300, height: "100%" }}>
           <CardMedia
@@ -87,7 +89,7 @@ const CarMediaCard = ({ data }) => {
           <Box>
             <Rating
               name="customized-10"
-              defaultValue={1}
+              defaultValue={0}
               max={1}
               icon={<FavoriteIcon fontSize="inherit" />}
               emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
@@ -166,7 +168,13 @@ const CarMediaCard = ({ data }) => {
                   fontSize: "0.775rem",
                 }}
               >
-                <LocalOfferIcon sx={{ marginRight: ".2rem" }} />
+                {/* <LocalOfferIcon sx={{ marginRight: ".2rem" }} /> */}
+                <Image
+                  src={"/nigeria-naira-currency-symbol-svgrepo-com.svg"}
+                  width={15}
+                  height={15}
+                  style={{ marginRight: "" }}
+                />
                 <Typography
                   sx={{
                     fontFamily: "Poppins",
@@ -175,7 +183,7 @@ const CarMediaCard = ({ data }) => {
                     letterSpacing: "0.04375rem",
                   }}
                 >
-                  {data?.price}
+                  {parseFloat(data?.price).toLocaleString("en-US")}
                 </Typography>
               </Box>
 
@@ -214,6 +222,7 @@ const CarMediaCard = ({ data }) => {
                 alignItems: "center",
                 marginTop: "1rem",
                 fontSize: "0.675rem",
+                color: "#6B6B6B",
               }}
             >
               <LocationOnIcon sx={{ fontSize: ".9rem" }} />
@@ -237,6 +246,7 @@ const CarMediaCard = ({ data }) => {
                 marginTop: ".4rem",
                 fontFamily: "Poppins",
                 fontSize: "0.775rem",
+                color: "#6B6B6B",
               }}
             >
               <DirectionsCarIcon sx={{ fontSize: ".9rem" }} />
@@ -260,6 +270,7 @@ const CarMediaCard = ({ data }) => {
                 marginTop: ".4rem",
                 fontFamily: "Poppins",
                 fontSize: "0.775rem",
+                color: "#6B6B6B",
               }}
             >
               <LocalGasStationIcon sx={{ fontSize: ".9rem" }} />
@@ -280,10 +291,7 @@ const CarMediaCard = ({ data }) => {
             sx={{ marginTop: "auto", justifySelf: "flex-end" }}
             className={styles.actions}
           >
-            <Button size="small">Share</Button>
-            <Button size="small" href="/#">
-              Learn More
-            </Button>
+            <Button size="small">Show Details</Button>
           </CardActions>
         </Card>
       </Link>

@@ -44,7 +44,7 @@ const Adverts = ({ pageData, handleChange, currentPage }) => {
   // };
 
   return (
-    <div>
+    <div data-aos="fade-up">
       <Box
         sx={{
           width: "100%",

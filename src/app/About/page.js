@@ -1,8 +1,18 @@
-import React from "react";
+"use client";
+import { useEffect } from "react";
 import { Box, Container, Divider, Typography } from "@mui/material";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+  }, []);
+
   return (
     <Container
       sx={{
@@ -14,7 +24,7 @@ const About = () => {
         gap: "3rem",
       }}
     >
-      <Box sx={{ marginBottom: "5rem" }}>
+      <Box sx={{ marginBottom: "3rem" }}>
         <Typography
           sx={{
             fontSize: { xs: "1.5rem", lg: "2.1875rem" },
@@ -28,22 +38,27 @@ const About = () => {
         <Divider
           sx={{
             mx: "auto",
-            backgroundColor: "#333",
-            width: "50%",
-            height: "5px",
+            backgroundColor: "#6b6b6b;",
+            width: "20%",
+            height: "3px",
             borderRadius: "1rem",
             my: ".7rem",
+            position: "relative",
           }}
+          data-aos="zoom-in-up"
         />
         <Image
           src={"/Assets/bugatti.jpeg"}
           width={300}
           height={300}
           style={{
-            width: { xs: "100%", lg: "85%" },
+            width: "100%",
             marginTop: "2rem",
-            borderRadius: "2rem",
+            backgroundColor: "#6b6b6b",
+            borderRadius: "1rem",
+            objectFit: "cover",
           }}
+          data-aos="zoom-in-down"
         />
       </Box>
       <Box
@@ -61,6 +76,7 @@ const About = () => {
             letterSpacing: "0.06563rem",
             fontWeight: 500,
           }}
+          data-aos="fade-left"
         >
           Who We Are
         </Typography>
@@ -71,6 +87,7 @@ const About = () => {
             fontWeight: 400,
             color: "6B6B6B",
           }}
+          data-aos="fade-left"
         >
           With a rich history spanning almost two decades, ngautosales has been
           at the forefront of revolutionizing the way consumers engage in
@@ -87,6 +104,7 @@ const About = () => {
             fontWeight: 400,
             color: "6B6B6B",
           }}
+          data-aos="fade-left"
         >
           In collaboration with our network of Certified Dealers, ngautosales
           stands as a pioneer in the industry, providing one of the most
@@ -118,6 +136,7 @@ const About = () => {
             letterSpacing: "0.06563rem",
             fontWeight: 500,
           }}
+          data-aos="fade-left"
         >
           What We Do
         </Typography>
@@ -129,6 +148,7 @@ const About = () => {
             fontWeight: 400,
             color: "6B6B6B",
           }}
+          data-aos="fade-left"
         >
           At ngautosales, we are redefining the car buying experience to align
           with the desires of our users—flexible, convenient, and tailored to
@@ -147,9 +167,10 @@ const About = () => {
         sx={{
           width: "100%",
           height: "10px",
-          marginBottom: "3rem",
+          marginBottom: "2rem",
           borderRadius: "1rem",
         }}
+        data-aos="fade-up"
       />
 
       <Box sx={{ marginBottom: "3rem" }}>
@@ -166,12 +187,13 @@ const About = () => {
         <Divider
           sx={{
             mx: "auto",
-            backgroundColor: "#333",
+            backgroundColor: "#6b6b6b;",
             width: "10%",
-            height: "5px",
+            height: "3px",
             borderRadius: "1rem",
-            my: ".7rem",
+            my: ".4rem",
           }}
+          data-aos="fade-up"
         />
       </Box>
 
@@ -185,6 +207,7 @@ const About = () => {
           gap: { xs: "3rem", lg: "5rem" },
           alignItems: "center",
         }}
+        data-aos="fade-left"
       >
         <Image
           src={"/Assets/boluwatife.PNG"}
@@ -219,13 +242,8 @@ const About = () => {
           textAlign: "center",
           alignItems: "center",
         }}
+        data-aos="fade-right"
       >
-        <Image
-          src={"/Assets/stanley.jpeg"}
-          width={300}
-          height={300}
-          style={{ borderRadius: "3rem" }}
-        />
         <Typography
           sx={{
             fontSize: { xs: "0.675rem", lg: "0.875rem" },
@@ -241,6 +259,12 @@ const About = () => {
           user-friendly. Stanley's technical expertise and commitment to
           excellence contribute to the success of ngautosales.
         </Typography>
+        <Image
+          src={"/Assets/stanley.jpeg"}
+          width={300}
+          height={300}
+          style={{ borderRadius: "3rem" }}
+        />
       </Box>
 
       <Box
@@ -253,6 +277,7 @@ const About = () => {
           flexDirection: { xs: "column", lg: "row" },
           alignItems: "center",
         }}
+        data-aos="fade-left"
       >
         <Image
           src={"/Assets/eze.jpeg"}
@@ -286,13 +311,8 @@ const About = () => {
           flexDirection: { xs: "column", lg: "row" },
           alignItems: "center",
         }}
+        data-aos="fade-right"
       >
-        <Image
-          src={"/Assets/paschal.jpeg"}
-          width={300}
-          height={300}
-          style={{ borderRadius: "3rem" }}
-        />
         <Typography
           sx={{
             fontSize: { xs: "0.675rem", lg: "0.875rem" },
@@ -309,6 +329,12 @@ const About = () => {
           about transforming the car buying experience in Nigeria and creating a
           platform that resonates with users.
         </Typography>
+        <Image
+          src={"/Assets/paschal.jpeg"}
+          width={300}
+          height={300}
+          style={{ borderRadius: "3rem" }}
+        />
       </Box>
     </Container>
   );

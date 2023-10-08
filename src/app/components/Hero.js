@@ -85,7 +85,6 @@ useEffect(() => {
         const result =  data?.filter(mod =>  {
           return mod.brand === Brand?.id
         });
-        console.log(`result for model: ${result} : ${data}`)
         setModels(result);
       } else if (prop === "years") {
         setYears(data);
@@ -121,7 +120,6 @@ useEffect(() => {
 
   const handleSubmit = async (values) => {
       setLoading(true);
-    console.log(`values: ${values}`)
     setSearch(true);
     const pageData = await Search(values.Model, values.Location, values.Year, values.search_query);
     setPageData(pageData?.adverts)
@@ -137,12 +135,9 @@ useEffect(() => {
   const handleSearch = (e) => {
     var formData = new FormData(e.target);
     const form_values = Object.fromEntries(formData);
-    console.log('form values', form_values)
     handleSubmit(form_values)
     e.target.reset();
   }
-
-
 
   return (
     <Box
@@ -152,9 +147,16 @@ useEffect(() => {
         textAlign: "center",
       }}
       className={styles.hero}
+      data-aos="zoom-in"
     >
       {/* <Box style={bgImageStyle} sx={{height: 'auto'}}></Box> */}
-      <Image src={`${Slides[currentSlide].url}`} width={300} height={300} alt="cars" style={{position: "absolute", left: 0, zIndex: 0, width: "100%", height: "100%", objectFit: "cover"}} />
+      <Image src={`${Slides[currentSlide].url}`} width={300} height={300} alt="Car slides" 
+      style={{
+        position: "absolute", left: 0, 
+      zIndex: 0, width: "100%", height: "100%", 
+      objectFit: "cover",
+      backgroundColor: "linear-gradient(rgba(47, 68, 13, 0.5), rgba(47, 68, 13, 0.5))",
+      opacity: .9}} />
       <Box className={styles.hero_content} >
         <Typography
           sx={{
@@ -189,7 +191,7 @@ useEffect(() => {
           </IconButton>
         </form>
 
-        <Formik initialValues={...initialValues} onSubmit={(values) => {handleSubmit(values)}} onChange={(value) => {console.log(value)}}>
+        <Formik initialValues={...initialValues} onSubmit={(values) => {handleSubmit(values)}}>
         {({
         values,
         errors,

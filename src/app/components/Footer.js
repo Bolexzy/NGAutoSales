@@ -4,6 +4,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import React from "react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -30,17 +31,29 @@ const Footer = () => {
           color: "#fff",
         }}
       >
-        <Typography
-          sx={{
-            color: "#fff",
-            fontSize: "1.675rem",
-            fontWeight: 500,
-            letterSpacing: "0.04375rem",
-          }}
-        >
-          NGAutoSales
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Image
+            src={"/logo.png"}
+            width={40}
+            height={40}
+            style={{
+              borderRadius: "50%",
+            }}
+          />
+          <Typography
+            sx={{
+              color: "#fff",
+              fontSize: "1.675rem",
+              fontWeight: 500,
+              letterSpacing: "0.04375rem",
+            }}
+          >
+            NGAutoSales
+          </Typography>
+        </Box>
+        <Typography sx={{ fontSize: ".7rem", color: "#646b6b" }}>
+          © 2023 All rights reserved.
         </Typography>
-        © 2023 All rights reserved.
       </Box>
       <Box
         sx={{

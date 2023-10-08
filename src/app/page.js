@@ -8,6 +8,8 @@ import Adverts from "./components/Adverts";
 import Stack from "@mui/material/Stack";
 import LinearProgress from "@mui/material/LinearProgress";
 import Footer from "./components/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // const getData = async () => {
 //   const response = await fetch(
@@ -22,6 +24,14 @@ export default function Home({}) {
   const [pageData, setPageData] = useState([]);
   const [search, setSearch] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+  }, []);
+
   // getData();
 
   const fetchData = async (page) => {
@@ -111,6 +121,7 @@ export default function Home({}) {
                 letterSpacing: "0.05313rem",
                 color: "#6B6B6B",
               }}
+              data-aos="fade-right"
             >
               Get instant offer - List for Free
             </Typography>
@@ -125,6 +136,8 @@ export default function Home({}) {
               backgroundColor: "rgba(220, 171, 47, 0.84)",
             }}
             href="https://car-autos-ng-alx-webstack-6rz2.vercel.app/dashboard"
+            target="_blanks"
+            data-aos="fade-left"
           >
             Get Started
           </Button>
@@ -147,11 +160,14 @@ export default function Home({}) {
               letterSpacing: "0.21875rem",
             }}
           >
-            {search === true ? "Featured Cars" : "Search Data"}
+            {search === false ? "Featured Cars" : "Search Result"}
           </Typography>
 
-          <Divider className={styles.under_stroke} sx={{ mx: "auto" }} />
-
+          <Divider
+            className={styles.under_stroke}
+            sx={{ mx: "auto" }}
+            data-aos="zoom-in-up"
+          />
           <Adverts
             pageData={pageData}
             handleChange={handleChange}

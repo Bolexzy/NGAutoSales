@@ -69,7 +69,7 @@ const CarMediaCard = ({ data }) => {
   return (
     <Paper
       elevation={4}
-      sx={{ maxWidth: 300, height: "auto" }}
+      sx={{ maxWidth: 300, height: "auto", borderRadius: "2.1875rem" }}
       className={styles.paper}
     >
       <Link

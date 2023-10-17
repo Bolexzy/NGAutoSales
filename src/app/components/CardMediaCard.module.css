@@ -19,10 +19,12 @@
 }
 
 .paper:hover {
-  box-shadow: 5px 5px 10px 5px rgb(194, 194, 194);
+  transition: ease-in-out 0.5s;
+  box-shadow: 5px 5px 5px 5px rgb(194, 194, 194);
 }
 
 .paper:hover .actions {
+  transition: ease-in-out 0.8s;
   transform: translateY(0%);
 }
 

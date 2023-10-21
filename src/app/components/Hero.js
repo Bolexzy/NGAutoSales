@@ -11,7 +11,8 @@ import {
   Select,
   Button,
   Grid,
-  Link
+  Link,
+  TextField
 } from "@mui/material";
 import styles from "./Hero.module.css";
 import Slides from "../../data";
@@ -144,51 +145,61 @@ useEffect(() => {
       sx={{
         width: "100%",
         height: "auto",
-        textAlign: "center",
+        position: "relative",
       }}
-      className={styles.hero}
       data-aos="zoom-in"
     >
+      <Box className={styles.hero_bg}>
+      <Box>
+        <Typography
+          sx={{
+            fontFamily: "Inter",
+            fontWeight: 600,
+            fontSize: { xs: "1.78156rem", md: "2.1875rem" },
+            textAlign: "left",
+            letterSpacing: {xs: '0.29394rem', lg: '4.3px'},
+            fontStyle: "italic",
+            zIndex: '999',
+            maxWidth: '350px',
+            color: "#1C1915",
+          }}
+        >
+          Lets find your perfect car
+        </Typography>
+        </Box>
+        <Box sx={{position: "absolute", right: '-10%', top: '15%'}}>
+          <Image src={'/honda.png'} width={339} height={145} alt="honda"/>
+        </Box>
+        </Box>
       {/* <Box style={bgImageStyle} sx={{height: 'auto'}}></Box> */}
-      <Image src={`${Slides[currentSlide].url}`} width={300} height={300} alt="Car slides" 
+      {/* <Image src={`${Slides[currentSlide].url}`} width={300} height={300} alt="Car slides" 
       style={{
         position: "absolute", left: 0, 
       zIndex: 0, width: "100%", height: "100%", 
       objectFit: "cover",
       backgroundColor: "linear-gradient(rgba(47, 68, 13, 0.5), rgba(47, 68, 13, 0.5))",
-      opacity: .9}} />
+      opacity: .9}} /> */}
       <Box className={styles.hero_content} >
-        <Typography
-          sx={{
-            fontFamily: "DM Sans",
-            fontWeight: 700,
-            fontSize: { xs: "1.4rem", md: "2.1875rem" },
-            textAlign: "center",
-            letterSpacing: {xs: '.3rem', lg: '4.3px'},
-            zIndex: '999',
-            maxWidth: '350px'
-          }}
-        >
-          Lets find your perfect car
-        </Typography>
+        
 
-        <form className={styles.search_box} onSubmit={(e) => {e.preventDefault(); handleSearch(e)}}>
-          <InputBase
+        <form  onSubmit={(e) => {e.preventDefault(); handleSearch(e)}} style={{width: "100%"}} >
+        <TextField label="Find your next car..." variant="standard" name="search_query" id="search_query" sx={{width: "100%"}}/>
+          {/* <InputBase
             sx={{ flex: 1 }}
             fullWidth
-            placeholder="Search Car Makes"
+            placeholder="Find your next car..."
             inputProps={{ "aria-label": "search google maps" }}
             name="search_query"
             id="search_query"
-          />
-          <IconButton
+          /> */}
+          {/* <IconButton
             type="Submit"
             sx={{ p: "8px", alignSelf: "flex-end" }}
             aria-label="search"
             value="Submit"
           >
             <SearchIcon />
-          </IconButton>
+          </IconButton> */}
         </form>
 
         <Formik initialValues={...initialValues} onSubmit={(values) => {handleSubmit(values)}}>
@@ -202,12 +213,11 @@ useEffect(() => {
       }) => (
           <Form>
             <FormWrapper>
-              <Grid container spacing={1} sx={{width: '100%', maxWidth: '300px', justifyContent: 'center'}}>
-                <Grid item xs={6} md={6}>
+              <Grid container spacing={1} sx={{width: '100%', maxWidth: '400px', justifyContent: 'center'}}>
+                <Grid item xs={12} md={6}>
                   <FormControl
                     sx={{
-                      m: 1,
-                      maxWidth: {xs: 100, md: 200},
+                      maxWidth: {xs: '100%', md: 200},
                       //   display: "flex",
                       //   flexWrap: "no-wrap",
                       //   flexDirection: "row",
@@ -218,7 +228,7 @@ useEffect(() => {
                     onSubmit={handleSubmit}
                     fullWidth
                   >
-                    <InputLabel  id="search-brand">Brand</InputLabel>
+                    <InputLabel  id="search-brand" sx={{fontFamily: "Inter", fontSize: "0.76719rem", letterSpacing: "0.09356rem"}}>Brand</InputLabel>
                     <Field name='Brand' as={Select} labelId="search-brand"  label="Brand" className={styles.select_field} >
                       <MenuItem value="Brand">
                         <em>Brands</em>
@@ -232,11 +242,10 @@ useEffect(() => {
                     </Field>
                   </FormControl>
                 </Grid>
-                <Grid item xs={6} md={6}>
+                <Grid item xs={12} md={6}>
                   <FormControl
                     sx={{
-                      m: 1,
-                      maxWidth: {xs: 100, md: 200},
+                      maxWidth: {xs: '100%', md: 200},
                       //   display: "flex",
                       //   flexWrap: "no-wrap",
                       //   flexDirection: "row",
@@ -247,7 +256,7 @@ useEffect(() => {
                     onSubmit={handleSubmit}
                     fullWidth
                   >
-                    <InputLabel id="search-model">Model</InputLabel>
+                    <InputLabel id="search-model" sx={{fontFamily: "Inter", fontSize: "0.76719rem", letterSpacing: "0.09356rem"}}>Model</InputLabel>
                     <Field name='Model' as={Select} labelId="search-model"  label="Model" className={styles.select_field}>
                       <MenuItem value="all">
                         <em>Models</em>
@@ -259,11 +268,10 @@ useEffect(() => {
                     </Field>
                   </FormControl>
                 </Grid>
-                <Grid item xs={6} md={6}>
+                <Grid item xs={12} md={6}>
                   <FormControl
                     sx={{
-                      m: 1,
-                      maxWidth: {xs: 100, md: 200},
+                      maxWidth: {xs: '100%', md: 200},
                       //   display: "flex",
                       //   flexWrap: "no-wrap",
                       //   flexDirection: "row",
@@ -274,7 +282,7 @@ useEffect(() => {
                     onSubmit={handleSubmit}
                     fullWidth
                   >
-                    <InputLabel id="search-location">Location</InputLabel>
+                    <InputLabel id="search-location" sx={{fontFamily: "Inter", fontSize: "0.76719rem", letterSpacing: "0.09356rem"}}>Location</InputLabel>
                     <Field name='Location' as={Select} labelId="search-location"  label="Location" className={styles.select_field}>
                       <MenuItem value="all">
                         <em>Locations</em>
@@ -286,11 +294,10 @@ useEffect(() => {
                     </Field>
                   </FormControl>
                 </Grid>
-                <Grid item xs={6} md={6}>
+                <Grid item xs={12} md={6}>
                   <FormControl
                     sx={{
-                      m: 1,
-                      maxWidth: {xs: 100, md: 200},
+                      maxWidth: {xs: '100%', md: 200},
                       //   display: "flex",
                       //   flexWrap: "no-wrap",
                       //   flexDirection: "row",
@@ -301,7 +308,7 @@ useEffect(() => {
                     onSubmit={handleSubmit}
                     fullWidth
                   >
-                    <InputLabel id="search-year">Year</InputLabel>
+                    <InputLabel id="search-year" sx={{fontFamily: "Inter", fontSize: "0.76719rem", letterSpacing: "0.09356rem"}}>Year</InputLabel>
                     <Field name='Year' as={Select} labelId="search-year"  label="Year" className={styles.select_field}>
                       <MenuItem value="all">
                         <em>Models</em>
@@ -313,36 +320,39 @@ useEffect(() => {
                     </Field>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={6} md={6}>
                   <Button
                     type="submit"
                     value="Submit"
                     variant="contained"
                     color="success"
                     sx={{
-                      width: "125px", height: '40px', fontSize: '14px', paddingX: '4px',
-                      borderRadius: "8px", backgroundColor: "rgba(220, 171, 47, 0.84)",
+                      width: "5.3125rem", height: '1.8125rem', fontSize: '.5rem', paddingX: '4px',
+                      fontStyle: "italic",
+                      borderRadius: "0.3125rem", backgroundColor: "#947119",
                       boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset",
-                      fontFamily: "Poppins",  fontWeight: 500, letterSpacing: "1px",
-                      textTransform: "capitalize", color: "#fff"
+                      fontFamily: "Inter",  fontWeight: 500, letterSpacing: "0.04906rem",
+                      textTransform: "capitalize",
+                      color: "#F4F4F4"
                   }}
                   className={styles.btn}
                   >
                     Shop New
                   </Button>
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={6} md={6}>
                   <Button
                     type="submit"
                     value="Submit"
                     variant="contained"
                     sx={{
-                      width: "125px", height: '40px', fontSize: '14px', paddingX: '4px',
-                      borderRadius: "8px", backgroundColor: "rgba(255, 255, 255, 0.84)",
+                      width: "5.3125rem", height: '1.8125rem', fontSize: '.5rem', paddingX: '4px',
+                      fontStyle: "italic",
+                      borderRadius: "0.3125rem", backgroundColor: "#1C1915",
                       boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset",
-                      fontFamily: "Poppins",  fontWeight: 500, letterSpacing: "1px",
+                      fontFamily: "Inter",  fontWeight: 500, letterSpacing: "0.04906rem",
                       textTransform: "capitalize",
-                      color: "#9F750B"
+                      color: "#F4F4F4"
                   }}
                   className={styles.btn}
                   >
@@ -356,10 +366,10 @@ useEffect(() => {
       )}
         </Formik>
 
-        <Box sx={{display: 'flex', gap: '2rem', textAlign: 'left', alignContent: 'flex-end', mt: 2, mb: 0, zIndex: '999'}}>
+        {/* <Box sx={{display: 'flex', gap: '2rem', textAlign: 'left', alignContent: 'flex-end', mt: 2, mb: 0, zIndex: '999'}}>
           <Link href='/#' sx={{fontSize: '14px', fontFamily: "Poppins", fontWeight: 300, letterSpacing: "0.7px", color: "#fff", textDecorationColor: '#D9D9D9'}}>Contact Us</Link>
           <Link href='/#'sx={{fontSize: '14px', fontFamily: "Poppins", fontWeight: 300, letterSpacing: "0.7px", color: "#fff", textDecorationColor: '#D9D9D9'}}>Cars for Rent</Link>
-        </Box>
+        </Box> */}
       </Box>
     </Box>
   );

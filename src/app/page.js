@@ -36,7 +36,7 @@ export default function Home({}) {
 
   const fetchData = async (page) => {
     const response = await fetch(
-      `https://carautong.pythonanywhere.com/api/adverts?page=${page}&page-size=9`
+      `https://carautong.pythonanywhere.com/api/adverts?page=${page}&page-size=4`
     );
 
     const data = await response.json();
@@ -64,12 +64,12 @@ export default function Home({}) {
     const data = await fetchData(value);
     setPageData(data?.adverts);
     setCurrentPage(value);
-    console.log(pageData);
+    // console.log(pageData);
     // setCurrentPage(value);
     setLoading(false);
   };
 
-  console.log(pageData.length);
+  // console.log(pageData.length);
 
   return (
     <div className={styles.main}>
@@ -91,58 +91,36 @@ export default function Home({}) {
           setLoading={setLoading}
         />
       </Box>
+
+      <Box
+        className={styles.box_wrapper}
+        sx={{
+          marginTop: "40px",
+          backgroundColor: "#596B5B",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "49px",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "row", md: "row" },
+            gap: { xs: "1rem", lg: "24rem" },
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Image src={"/toyota.svg"} width={60} height={10} alt="toyota" />
+          <Image src={"/ford.svg"} width={60} height={20} alt="ford" />
+          <Image src={"/kia.svg"} width={35} height={15} alt="kia" />
+          <Image src={"/lexus.svg"} width={60} height={10} alt="lexus" />
+          <Image src={"/hyundai.svg"} width={32} height={19} alt="hyundai" />
+        </Box>
+      </Box>
       <Container
         sx={{ my: 4, display: "flex", flexDirection: "column", gap: "100px" }}
       >
-        <Box
-          className={styles.box_wrapper}
-          sx={{
-            flexDirection: { xs: "column", md: "row" },
-            gap: { xs: "1rem", lg: "24rem" },
-            justifyContent: "space-between",
-          }}
-        >
-          <Box>
-            <Typography
-              sx={{
-                fontSize: { xs: "1.7rem", md: "1.7875rem" },
-                fontFamily: "DM Sans",
-                fontWeight: 500,
-                letterSpacing: " 0.06rem",
-              }}
-            >
-              Sell Your Car
-            </Typography>
-            <Typography
-              sx={{
-                fontWeight: 300,
-                fontFamily: "DM Sans",
-                fontSize: "0.875rem",
-                letterSpacing: "0.05313rem",
-                color: "#6B6B6B",
-              }}
-              data-aos="fade-right"
-            >
-              Get instant offer - List for Free
-            </Typography>
-          </Box>
-          <Button
-            variant="contained"
-            color="success"
-            sx={{
-              width: { xs: "100%", lg: "35%" },
-              height: "2.8rem",
-              filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) ",
-              backgroundColor: "rgba(220, 171, 47, 0.84)",
-            }}
-            href="https://car-autos-ng-alx-webstack-6rz2.vercel.app/dashboard"
-            target="_blanks"
-            data-aos="fade-left"
-          >
-            Get Started
-          </Button>
-        </Box>
-
         <Box
           sx={{
             display: "flex",
@@ -152,15 +130,16 @@ export default function Home({}) {
         >
           <Typography
             sx={{
-              fontSize: { xs: "1.8rem", md: "2.1875rem" },
+              fontSize: { xs: "1.0625rem", md: "2.1875rem" },
               mb: 4,
               textAlign: "center",
-              fontFamily: "DM Sans",
+              fontFamily: "Inter",
               fontWeight: 500,
-              letterSpacing: "0.21875rem",
+              letterSpacing: "0.15938rem",
+              fontStyle: "italic",
             }}
           >
-            {search === false ? "Featured Cars" : "Search Result"}
+            {search === false ? "Recently Added" : "Search Result"}
           </Typography>
 
           <Divider

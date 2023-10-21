@@ -3,6 +3,12 @@
   overflow: hidden;
 }
 
+.content {
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .image_thumbnail {
   box-shadow: 0 -20px 40px 15px rgb(194, 194, 194);
 }
@@ -40,7 +46,7 @@
   left: 80%;
 }
 
-.ul {
+/* .ul {
   display: flex;
   align-items: center;
   align-content: center;
@@ -54,14 +60,14 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.05313rem;
-}
+} */
 
-.ul li {
+/* .ul li {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+} */
 
 .navigate_prev {
   position: absolute;

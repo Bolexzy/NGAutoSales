@@ -1,6 +1,13 @@
-.hero {
-  background-color: #dfdfdf;
-  position: relative;
+.hero_bg {
+  width: 100%;
+  background: linear-gradient(
+    113deg,
+    #fff 52.55%,
+    rgba(6, 43, 10, 0) 52.6%,
+    rgba(6, 43, 10, 0.88) 101.51%
+  );
+  min-height: 300px;
+  padding: 2rem;
 }
 
 .btn:hover {
@@ -11,16 +18,20 @@
 }
 
 .hero_content {
-  width: 100%;
+  width: 90%;
   display: flex;
+  margin-top: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e1e5e1;
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
   flex-direction: column;
   color: #ffff;
   text-align: center;
-  padding: 20px;
-  z-index: 900;
+  padding: 0.8rem;
+  z-index: 999;
 }
 
 .search_box {
@@ -43,8 +54,11 @@
 }
 
 .select_field {
-  font-size: 17px;
-  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 2.4rem;
+  text-align: center;
+  background-color: #f4f4f4;
+  border: 1px solid #1c1915;
 }
 
 /* @media only screen and (min-width: 768px) {

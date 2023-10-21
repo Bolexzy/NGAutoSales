@@ -50,7 +50,7 @@ const Navbar = () => {
     <AppBar
       position="static"
       className={styles.appbar}
-      sx={{ backgroundColor: "#2F440D" }}
+      sx={{ backgroundColor: "#f4f4f4" }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -82,12 +82,13 @@ const Navbar = () => {
               mr: 4,
               display: { xs: "none", md: "flex" },
               fontWeight: 700,
-              letterSpacing: "4.3px",
-              color: "inherit",
+              letterSpacing: "0.15938rem",
               textDecoration: "none",
-              fontFamily: "DM Sans",
-              fontSize: "1.2rem",
+              fontFamily: "Inter",
+              fontSize: "1.1rem",
+              fontStyle: "italic",
               lineHeight: "normal",
+              color: "#1F2720",
             }}
             className={styles.text}
           >
@@ -101,7 +102,7 @@ const Navbar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="#1F2720"
             >
               <MenuIcon />
             </IconButton>
@@ -132,11 +133,12 @@ const Navbar = () => {
                     href={page === "Home" ? "/#" : `/${page}`}
                   >
                     <Typography
-                      style={{
-                        fontFamily: "Poppins",
-                        fontSize: "12px",
+                      sx={{
+                        textAlign: "center",
+                        fontFamily: "Inter",
+                        fontSize: "1rem",
                         fontWeight: 400,
-                        letterSpacing: "1px",
+                        letterSpacing: "0.14194rem",
                       }}
                     >
                       {page}
@@ -167,12 +169,14 @@ const Navbar = () => {
               mr: 1,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "Poppins",
-              fontSize: "1rem",
+              fontFamily: "DM Sans",
+              fontSize: "1.06rem",
               fontWeight: 700,
-              letterSpacing: ".1rem",
-              color: "inherit",
+              fontStyle: "italic",
+              letterSpacing: "0.15938rem",
               textDecoration: "none",
+              color: "#1F2720",
+              WebkitTextStroke: "1px #615647",
             }}
           >
             NGAutoSales
@@ -203,14 +207,20 @@ const Navbar = () => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <AccountCircleIcon
                   alt="Remy Sharp"
-                  sx={{ fontSize: "2.5rem", color: "#fff" }}
+                  sx={{ fontSize: "2.5rem", color: "#1F2720" }}
                 />
 
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: "45px" }}
+              sx={{
+                mt: "45px",
+                textAlign: "center",
+                fontFamily: "Inter",
+                fontWeight: 400,
+                letterSpacing: "0.14194rem",
+              }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -228,7 +238,12 @@ const Navbar = () => {
               {settings.map((setting, index) => (
                 <MenuItem key={index} onClick={handleCloseUserMenu}>
                   <a
-                    sx={{ textAlign: "center" }}
+                    sx={{
+                      textAlign: "center",
+                      fontFamily: "Inter",
+                      fontWeight: 400,
+                      letterSpacing: "0.14194rem",
+                    }}
                     href={`https://car-autos-ng-alx-webstack-6rz2.vercel.app/${
                       setting[Object.keys(setting)[0]]
                     }`}

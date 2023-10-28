@@ -68,18 +68,17 @@ const CarMediaCard = ({ data }) => {
 
   return (
     <Paper
-      elevation={4}
+      elevation={2}
       sx={{
         maxWidth: 250,
         height: "auto",
-        mineHeight: "200px",
         borderRadius: "0.5rem",
         backgroundColor: "#F4F4F4",
       }}
       className={styles.paper}
     >
       <Link
-        sx={{ textDecoration: "none", color: "inherit" }}
+        sx={{ textDecoration: "none" }}
         href={`/cars/${data?.id}?year=${year}&state=${state}&brand=${brand}&city=${city}`}
         as={`/cars/${data?.id}?year=${year}&state=${state}&brand=${brand}&city=${city}`}
       >
@@ -113,7 +112,7 @@ const CarMediaCard = ({ data }) => {
             <div
               style={{
                 display: "flex",
-                gap: "10px",
+                gap: "25px",
                 alignItems: "center",
                 justifyContent: "space-between",
               }}
@@ -123,8 +122,8 @@ const CarMediaCard = ({ data }) => {
                 variant="h5"
                 component="div"
                 sx={{
-                  fontSize: "0.75rem",
-                  fontFamily: "Inter",
+                  fontSize: { xs: "0.85rem", md: "1rem" },
+                  fontFamily: "DM Sans",
                   fontWeight: 600,
                   letterSpacing: "0.12375rem",
                 }}
@@ -141,7 +140,7 @@ const CarMediaCard = ({ data }) => {
                   height: "auto",
                   padding: ".1rem",
                   fontWeight: 500,
-                  backgroundColor: "#615647",
+                  backgroundColor: "#1f2720",
                   fontFamily: "Inter",
                   color: "#E1E5E1",
                   letterSpacing: "0.07988rem",
@@ -154,13 +153,13 @@ const CarMediaCard = ({ data }) => {
                   src={"/nigeria-naira-currency-symbol-svgrepo-com.svg"}
                   width={8}
                   height={8}
-                  style={{ marginRight: "" }}
+                  style={{ marginRight: "", backgroundColor: "#fff" }}
                 />
                 <Typography
                   sx={{
-                    fontSize: "0.48413rem",
+                    fontSize: "0.58413rem",
                     fontWeight: 500,
-                    fontFamily: "Inter",
+                    fontFamily: "Poppins",
                     color: "#E1E5E1",
                     letterSpacing: "0.07988rem",
                   }}
@@ -173,14 +172,14 @@ const CarMediaCard = ({ data }) => {
               variant="body2"
               color="text.secondary"
               sx={{
-                fontSize: "0.5rem",
+                fontSize: { xs: "0.62rem", md: ".65rem" },
                 fontWeight: 400,
                 letterSpacing: "0.0825rem",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
                 color: "#94A195",
-                fontFamily: "DM Sans",
+                fontFamily: "Poppins",
                 marginTop: ".5rem",
               }}
               className={styles.description}
@@ -188,7 +187,7 @@ const CarMediaCard = ({ data }) => {
               {data?.description}
             </Typography>
 
-            <Divider sx={{ backgroundColor: "#615647", my: "0.5rem" }} />
+            <Divider sx={{ backgroundColor: "#615647", my: "0.8rem" }} />
 
             <Box
               sx={{
@@ -213,7 +212,7 @@ const CarMediaCard = ({ data }) => {
                 <Typography
                   sx={{
                     fontFamily: "DM Sans",
-                    fontSize: "0.38119rem",
+                    fontSize: "0.48119rem",
                     fontWeight: 400,
                     letterSpacing: "0.06288rem",
                     color: "#94A195",
@@ -237,7 +236,7 @@ const CarMediaCard = ({ data }) => {
                 <Typography
                   sx={{
                     fontFamily: "DM Sans",
-                    fontSize: "0.38119rem",
+                    fontSize: "0.48119rem",
                     fontWeight: 400,
                     letterSpacing: "0.06288rem",
                     color: "#94A195",
@@ -261,7 +260,7 @@ const CarMediaCard = ({ data }) => {
                 <Typography
                   sx={{
                     fontFamily: "DM Sans",
-                    fontSize: "0.38119rem",
+                    fontSize: "0.48119rem",
                     fontWeight: 400,
                     letterSpacing: "0.06288rem",
                     color: "#94A195",
@@ -284,7 +283,7 @@ const CarMediaCard = ({ data }) => {
                 <Typography
                   sx={{
                     fontFamily: "DM Sans",
-                    fontSize: "0.38119rem",
+                    fontSize: "0.48119rem",
                     fontWeight: 400,
                     letterSpacing: "0.06288rem",
                     color: "#94A195",
@@ -294,25 +293,27 @@ const CarMediaCard = ({ data }) => {
                 </Typography>
               </Box>
             </Box>
-          </CardContent>
-
-          <CardActions
-            sx={{ marginTop: "auto", justifySelf: "flex-end" }}
-            className={styles.actions}
-          >
-            <Button
-              size="small"
+            {/* <Box
               sx={{
-                color: "#13591A",
-                fontSize: "0.35938rem",
-                letterSpacing: "0.01256rem",
-                fontFamily: "Inter",
-                width: "3rem",
+                width: "40%",
+                padding: 0,
+                borderRadius: ".3rem",
               }}
+              className={styles.actions}
             >
-              Show Details
-            </Button>
-          </CardActions>
+              <Button
+                size="small"
+                sx={{
+                  color: "#13591A",
+                  fontSize: { xs: "0.35938rem", sm: ".6rem" },
+                  letterSpacing: "0.01256rem",
+                  fontFamily: "Inter",
+                }}
+              >
+                Show Details
+              </Button>
+            </Box> */}
+          </CardContent>
         </Card>
       </Link>
     </Paper>

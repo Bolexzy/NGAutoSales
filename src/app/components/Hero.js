@@ -153,22 +153,22 @@ useEffect(() => {
       <Box>
         <Typography
           sx={{
-            fontFamily: "Inter",
+            fontFamily: "DM Sans",
             fontWeight: 600,
-            fontSize: { xs: "1.78156rem", md: "2.1875rem" },
-            textAlign: "left",
+            fontSize: { xs: "1.68156rem", sm: "2.3rem", md: "2.4875rem" },
+            textAlign: {xs: "left", sm: "center"},
             letterSpacing: {xs: '0.29394rem', lg: '4.3px'},
             fontStyle: "italic",
             zIndex: '999',
-            maxWidth: '350px',
+            maxWidth: {xs: '350px', sm: "450px"},
             color: "#1C1915",
           }}
         >
           Lets find your perfect car
         </Typography>
         </Box>
-        <Box sx={{position: "absolute", right: '-10%', top: '15%'}}>
-          <Image src={'/honda.png'} width={339} height={145} alt="honda"/>
+        <Box sx={{position: "absolute", right: {xs: '-10%', sm: "0"}, top: {xs: '15%', sm: "0"}, width: {xs: "340px", sm: "500px"}, height: {xs: "145px", sm: "300px"}}}>
+          <Image src={'/honda.png'} width={339} height={145} alt="honda" style={{width: "100%", height: "100%"}}/>
         </Box>
         </Box>
       {/* <Box style={bgImageStyle} sx={{height: 'auto'}}></Box> */}
@@ -183,7 +183,7 @@ useEffect(() => {
         
 
         <form  onSubmit={(e) => {e.preventDefault(); handleSearch(e)}} style={{width: "100%"}} >
-        <TextField label="Find your next car..." variant="standard" name="search_query" id="search_query" sx={{width: "100%"}}/>
+        <TextField label="Find your next car..." variant="standard" name="search_query" id="search_query"  sx={{width: "100%", color: "#f4f4f4 !important"}}/>
           {/* <InputBase
             sx={{ flex: 1 }}
             fullWidth
@@ -211,10 +211,10 @@ useEffect(() => {
         handleBlur,
         handleSubmit,
       }) => (
-          <Form>
+          <Form style={{width: "100%"}}>
             <FormWrapper>
-              <Grid container spacing={1} sx={{width: '100%', maxWidth: '400px', justifyContent: 'center'}}>
-                <Grid item xs={12} md={6}>
+              <Grid container spacing={1} sx={{width: '100%', maxWidth: '100%', justifyContent: 'center'}}>
+                <Grid item xs={12} sm={3} md={2}>
                   <FormControl
                     sx={{
                       maxWidth: {xs: '100%', md: 200},
@@ -242,7 +242,7 @@ useEffect(() => {
                     </Field>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} sm={3} md={2}>
                   <FormControl
                     sx={{
                       maxWidth: {xs: '100%', md: 200},
@@ -268,7 +268,7 @@ useEffect(() => {
                     </Field>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} sm={3} md={2}>
                   <FormControl
                     sx={{
                       maxWidth: {xs: '100%', md: 200},
@@ -294,7 +294,7 @@ useEffect(() => {
                     </Field>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} sm={3} md={2}>
                   <FormControl
                     sx={{
                       maxWidth: {xs: '100%', md: 200},
@@ -320,37 +320,39 @@ useEffect(() => {
                     </Field>
                   </FormControl>
                 </Grid>
-                <Grid item xs={6} md={6}>
+                <Grid item xs={6} md={2}>
                   <Button
                     type="submit"
                     value="Submit"
                     variant="contained"
                     color="success"
                     sx={{
-                      width: "5.3125rem", height: '1.8125rem', fontSize: '.5rem', paddingX: '4px',
+                      marginTop: {xs: ".6rem", md: ""},
+                      width: "6.3125rem", fontSize: '.8rem', paddingX: '4px',
                       fontStyle: "italic",
-                      borderRadius: "0.3125rem", backgroundColor: "#947119",
+                      borderRadius: "0.3125rem", backgroundColor: "#F4F4F4",
                       boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset",
-                      fontFamily: "Inter",  fontWeight: 500, letterSpacing: "0.04906rem",
+                      fontFamily: "DM Sans",  fontWeight: 500, letterSpacing: "0.04906rem",
                       textTransform: "capitalize",
-                      color: "#F4F4F4"
+                      color: "#000"
                   }}
                   className={styles.btn}
                   >
                     Shop New
                   </Button>
                 </Grid>
-                <Grid item xs={6} md={6}>
+                <Grid item xs={6} md={2}>
                   <Button
                     type="submit"
                     value="Submit"
                     variant="contained"
                     sx={{
-                      width: "5.3125rem", height: '1.8125rem', fontSize: '.5rem', paddingX: '4px',
+                      marginTop: {xs: ".6rem", md: ""},
+                      width: "6.5125rem", fontSize: '.8rem', paddingX: '4px',
                       fontStyle: "italic",
                       borderRadius: "0.3125rem", backgroundColor: "#1C1915",
                       boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset",
-                      fontFamily: "Inter",  fontWeight: 500, letterSpacing: "0.04906rem",
+                      fontFamily: "DM Sans",  fontWeight: 500, letterSpacing: "0.04906rem",
                       textTransform: "capitalize",
                       color: "#F4F4F4"
                   }}

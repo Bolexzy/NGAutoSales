@@ -50,7 +50,7 @@ const Navbar = () => {
     <AppBar
       position="static"
       className={styles.appbar}
-      sx={{ backgroundColor: "#f4f4f4" }}
+      sx={{ backgroundColor: "#1F2720" }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -84,11 +84,11 @@ const Navbar = () => {
               fontWeight: 700,
               letterSpacing: "0.15938rem",
               textDecoration: "none",
-              fontFamily: "Inter",
+              fontFamily: "DM Sans",
               fontSize: "1.1rem",
               fontStyle: "italic",
               lineHeight: "normal",
-              color: "#1F2720",
+              color: "#F4F4F4",
             }}
             className={styles.text}
           >
@@ -102,9 +102,9 @@ const Navbar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="#1F2720"
+              color="#F4F4F4"
             >
-              <MenuIcon />
+              <MenuIcon sx={{ color: "#F4F4F4" }} />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -135,7 +135,7 @@ const Navbar = () => {
                     <Typography
                       sx={{
                         textAlign: "center",
-                        fontFamily: "Inter",
+                        fontFamily: "DM Sans",
                         fontSize: "1rem",
                         fontWeight: 400,
                         letterSpacing: "0.14194rem",
@@ -175,8 +175,8 @@ const Navbar = () => {
               fontStyle: "italic",
               letterSpacing: "0.15938rem",
               textDecoration: "none",
-              color: "#1F2720",
-              WebkitTextStroke: "1px #615647",
+              color: "#F4F4F4",
+              WebkitTextStroke: "1px #F4F4F4",
             }}
           >
             NGAutoSales
@@ -207,7 +207,7 @@ const Navbar = () => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <AccountCircleIcon
                   alt="Remy Sharp"
-                  sx={{ fontSize: "2.5rem", color: "#1F2720" }}
+                  sx={{ fontSize: "2.5rem", color: "#F4F4F4" }}
                 />
 
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}

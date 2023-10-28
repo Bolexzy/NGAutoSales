@@ -159,6 +159,7 @@ export default function Home({}) {
               display: "flex",
               justifyContent: "space-around",
               alignItems: "center",
+              mb: 2,
             }}
           >
             <Typography
@@ -333,7 +334,7 @@ export default function Home({}) {
                 m: 1,
               }}
             >
-              <Image src={"/dollar.svg"} width={28} height={28} alt="dollar" />
+              <Image src={"/quality.svg"} width={28} height={28} alt="dollar" />
               <Typography
                 sx={{
                   color: "#596B5B",
@@ -343,7 +344,7 @@ export default function Home({}) {
                   letterSpacing: "0.862px",
                 }}
               >
-                Best Prices In Town
+                Quality Assurance
               </Typography>
             </Box>
             <Box
@@ -358,7 +359,7 @@ export default function Home({}) {
                 m: 1,
               }}
             >
-              <Image src={"/dollar.svg"} width={28} height={28} alt="dollar" />
+              <Image src={"/offer.svg"} width={28} height={28} alt="dollar" />
               <Typography
                 sx={{
                   color: "#596B5B",
@@ -368,7 +369,7 @@ export default function Home({}) {
                   letterSpacing: "0.862px",
                 }}
               >
-                Best Prices In Town
+                Great Offers
               </Typography>
             </Box>
             <Box
@@ -383,7 +384,7 @@ export default function Home({}) {
                 m: 1,
               }}
             >
-              <Image src={"/dollar.svg"} width={28} height={28} alt="dollar" />
+              <Image src={"/trust.svg"} width={28} height={28} alt="dollar" />
               <Typography
                 sx={{
                   color: "#596B5B",
@@ -393,7 +394,7 @@ export default function Home({}) {
                   letterSpacing: "0.862px",
                 }}
               >
-                Best Prices In Town
+                Trusted By Thousands
               </Typography>
             </Box>
           </Box>
